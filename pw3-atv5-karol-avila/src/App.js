@@ -8,14 +8,14 @@ function App() {
   const siglas = ['1ºDS', '2ºDS', '3ºDS'];
 
   useEffect(() => {
-    axios.get('https://reqres.in/api/users?page=2')
-      .then(response => {
-        console.log(response);
-        setSigla(response.data.data[0].sigla);
-      })
-      .catch(error => {
-        console.log("Erro na requisição:", error);
-      });
+    // axios.get('https://reqres.in/api/users?page=2')
+    //   .then(response => {
+    //     console.log(response);
+    //     setSigla(response.data.data[0].sigla);
+    //   })
+    //   .catch(error => {
+    //     console.log("Erro na requisição:", error);
+    //   });
   }, []);
 
   useEffect(() => {
@@ -24,8 +24,18 @@ function App() {
 
   function cadastrarUsuario(event) {
     event.preventDefault();
-    console.log(`SIGLA cadastrada: ${sigla}, NOME cadastrado: ${nome}`);
-    alert(`SIGLA: ${sigla} NOME: ${nome}`);
+
+    const usuario = { sigla, nome };
+    axios.post('http://localhost:3000/usuarios', usuario)
+      .then(response => {
+        console.log("Usuário cadastrado:", response.data);
+        alert(`SIGLA: ${sigla} NOME: ${nome}`);
+        setSigla("");
+        setNome("");
+      })
+      .catch(error => {
+        console.log("Erro ao cadastrar usuário:", error);
+      });
   }
 
   return (

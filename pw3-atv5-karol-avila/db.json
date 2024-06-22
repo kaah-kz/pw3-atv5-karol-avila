@@ -1,8 +1,14 @@
 {
-    "usuarios": [
-      { "id": 1, "nome": "João", "sigla": "1ºDS" },
-      { "id": 2, "nome": "Maria", "sigla": "2ºDS" },
-      { "id": 3, "nome": "Pedro", "sigla": "3ºDS" }
-    ]
-  }
-  
+  "usuarios": [
+    {
+      "id": "d62d",
+      "sigla": "3ºDS",
+      "nome": "Karol"
+    },
+    {
+      "id": "ce31",
+      "sigla": "3ºDS",
+      "nome": "Teste"
+    }
+  ]
+}
